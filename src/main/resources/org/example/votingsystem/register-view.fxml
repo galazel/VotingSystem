@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="577.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.votingsystem.RegisterController">
+<AnchorPane fx:id="mainPane" prefHeight="577.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.votingsystem.RegisterController">
    <children>
       <Label layoutX="157.0" layoutY="47.0" text="Create an account">
          <font>
@@ -33,5 +32,6 @@
          </padding>
       </VBox>
       <Button layoutX="152.0" layoutY="482.0" mnemonicParsing="false" onAction="#clickRegister" prefHeight="50.0" prefWidth="210.0" text="Register" />
+      <Button layoutX="14.0" layoutY="538.0" mnemonicParsing="false" onAction="#clickReturn" text="&lt;" />
    </children>
 </AnchorPane>
