@@ -7,7 +7,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class RegisterController {
@@ -22,6 +25,9 @@ public class RegisterController {
     private PasswordField password;
     @FXML
     private AnchorPane mainPane;
+
+    @FXML
+    private ImageView imageView;
 
 
 
@@ -86,6 +92,13 @@ public class RegisterController {
     protected void clickReturn(ActionEvent event)
     {
         NavigateStageController.navigateMain(mainPane);
+    }
+
+    @FXML
+    protected void clickImage(MouseEvent event)
+    {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Upload Profile Picture");
     }
 
 }

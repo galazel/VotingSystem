@@ -71,6 +71,10 @@ public class LoginController {
                     }
 
                 }else {
+                    LoginAccount loginAccount = new LoginAccount();
+                    loginAccount.setVotersId(Integer.parseInt(votersId.getText()));
+                    loginAccount.setVotersName(Integer.parseInt(votersId.getText()));
+
                     try {
                         FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("dashboard-voter-view.fxml"));
                         Scene scene = new Scene(loader.load());
@@ -78,6 +82,8 @@ public class LoginController {
                         stage.setScene(scene);
                         stage.setTitle("Dashboard Voter");
                         stage.show();
+
+
                     } catch (Exception ex) {
                         throw new RuntimeException(ex);
                     }

@@ -5,18 +5,20 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPane" prefHeight="577.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.votingsystem.RegisterController">
+<AnchorPane fx:id="mainPane" prefHeight="581.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.votingsystem.RegisterController">
    <children>
-      <Label layoutX="157.0" layoutY="47.0" text="Create an account">
+      <Label layoutX="325.0" layoutY="31.0" text="Create an account">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <VBox layoutX="50.0" layoutY="89.0" prefHeight="385.0" prefWidth="414.0" spacing="10.0">
+      <VBox layoutX="397.0" layoutY="92.0" prefHeight="385.0" prefWidth="414.0" spacing="10.0">
          <children>
             <Label text="Name" />
             <TextField fx:id="name" prefHeight="50.0" />
@@ -31,7 +33,12 @@
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </padding>
       </VBox>
-      <Button layoutX="152.0" layoutY="482.0" mnemonicParsing="false" onAction="#clickRegister" prefHeight="50.0" prefWidth="210.0" text="Register" />
+      <Button layoutX="324.0" layoutY="477.0" mnemonicParsing="false" onAction="#clickRegister" prefHeight="50.0" prefWidth="210.0" text="Register" />
       <Button layoutX="14.0" layoutY="538.0" mnemonicParsing="false" onAction="#clickReturn" text="&lt;" />
+      <ImageView fx:id="imageView" fitHeight="361.0" fitWidth="331.0" layoutX="57.0" layoutY="108.0" onMouseClicked="#clickImage" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/upload%20logo.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

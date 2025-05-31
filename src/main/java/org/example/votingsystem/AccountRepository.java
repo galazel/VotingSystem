@@ -83,6 +83,23 @@ public class AccountRepository
         }
         return 0;
     }
+    public static String getVotersName(int id)
+    {
+        try(Connection connection = DriverManager.getConnection(DatabaseConnection.CONNECTION_DATABASE,"root","galagar"))
+        {
+            String query = "SELECT * FROM voters WHERE voters_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1,id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next())
+                return resultSet.getString("voters_name");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "Anonymous";
+    }
 
 
 
