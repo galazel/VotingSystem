@@ -19,5 +19,10 @@ public class AccountService {
         return AccountRepository.getVotersId(name,email);
     }
 
+    public byte[] getProfile(int id, String pass)
+    {
+        return AccountRepository.getVotersProfile(id, pass);
+    }
+
 
 }

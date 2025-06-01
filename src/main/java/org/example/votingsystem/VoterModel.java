@@ -3,6 +3,7 @@ package org.example.votingsystem;
 public class VoterModel
 {
     private String name, email, contactNum, password;
+    private byte[] profile;
 
     private VoterModel(Builder builder)
     {
@@ -10,11 +11,13 @@ public class VoterModel
         this.email = builder.email;
         this.contactNum = builder.contactNum;
         this.password = builder.password;
+        this.profile = builder.profile;
     }
 
     public static class Builder
     {
         private String name, email, contactNum, password;
+        private byte[] profile;
 
         public Builder setName(String name) {
             this.name = name;
@@ -33,6 +36,10 @@ public class VoterModel
 
         public Builder setPassword(String password) {
             this.password = password;
+            return this;
+        }
+        public Builder setProfile(byte[] profile) {
+            this.profile = profile;
             return this;
         }
         public VoterModel build()
@@ -55,5 +62,8 @@ public class VoterModel
 
     public String getPassword() {
         return password;
+    }
+    public byte[] getProfile() {
+        return profile;
     }
 }

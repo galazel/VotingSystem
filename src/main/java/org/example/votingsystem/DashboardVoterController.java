@@ -5,9 +5,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.io.ByteArrayInputStream;
 
 public class DashboardVoterController {
 
@@ -19,6 +23,8 @@ public class DashboardVoterController {
     private AnchorPane rightPane;
     @FXML
     private VBox vBox;
+    @FXML
+    private ImageView profile;
 
 
     @FXML
@@ -29,6 +35,8 @@ public class DashboardVoterController {
         id.setText("Identification Number: "+Integer.toString(login.getVotersId()));
         if(isBoxEmpty(vBox))
             vBox.getChildren().add(new Label("You have not voted yet."));
+        ByteArrayInputStream image = new ByteArrayInputStream(login.getProfile());
+        profile.setImage(new Image(image));
 
     }
 

@@ -74,6 +74,7 @@ public class LoginController {
                     LoginAccount loginAccount = new LoginAccount();
                     loginAccount.setVotersId(Integer.parseInt(votersId.getText()));
                     loginAccount.setVotersName(Integer.parseInt(votersId.getText()));
+                    loginAccount.setProfile(service.getProfile(Integer.parseInt(votersId.getText()), password.getText()));
 
                     try {
                         FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("dashboard-voter-view.fxml"));

@@ -2,8 +2,9 @@ package org.example.votingsystem;
 
 public class LoginAccount {
 
-    public static String votersName;
-    public static int votersId;
+    private static String votersName;
+    private static int votersId;
+    private static byte[] profile;
 
     public String getVotersName() {
         return votersName;
@@ -19,5 +20,13 @@ public class LoginAccount {
 
     public void setVotersId(int votersId) {
         LoginAccount.votersId = votersId;
+    }
+
+    public byte[] getProfile() {
+        return profile;
+    }
+
+    public void setProfile(byte[] profile) {
+        LoginAccount.profile = profile;
     }
 }

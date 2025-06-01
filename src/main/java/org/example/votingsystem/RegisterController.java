@@ -7,11 +7,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
+import java.io.File;
+import java.nio.file.Files;
 
 public class RegisterController {
 
@@ -28,13 +32,14 @@ public class RegisterController {
 
     @FXML
     private ImageView imageView;
+    private byte [] profile;
 
 
 
     @FXML
     protected void clickRegister(ActionEvent e)
     {
-        if(name.getText().isEmpty() || email.getText().isEmpty() || contactNum.getText().isEmpty() || password.getText().isEmpty())
+        if(name.getText().isEmpty() || email.getText().isEmpty() || contactNum.getText().isEmpty() || password.getText().isEmpty() || imageView == null)
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Invalid Fields");
@@ -49,6 +54,7 @@ public class RegisterController {
                     .setEmail(email.getText())
                     .setContactNum(contactNum.getText())
                     .setPassword(password.getText())
+                    .setProfile(profile)
                     .build();
             AccountService accountService = new AccountService();
             if(accountService.isAccountAlreadyExisted(voterModel))
@@ -95,10 +101,31 @@ public class RegisterController {
     }
 
     @FXML
-    protected void clickImage(MouseEvent event)
-    {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Upload Profile Picture");
+    protected void clickImage(MouseEvent event) {
+        FileChooser choose = new FileChooser();
+        choose.setTitle("Upload Profile Picture");
+        choose.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files","*.jpeg","*.png"));
+        Stage stage = (Stage) mainPane.getScene().getWindow();
+        File selectedFile = choose.showOpenDialog(stage);
+
+        try {
+            if (selectedFile != null) {
+                Image image = new Image(selectedFile.toURI().toString());
+                imageView.setImage(image);
+                profile = Files.readAllBytes(selectedFile.toPath());
+            }else
+            {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Invalid Fields");
+                alert.setHeaderText(null);
+                alert.setContentText("No Profile Selected!");
+                alert.showAndWait();
+                return;
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
+
 
 }
