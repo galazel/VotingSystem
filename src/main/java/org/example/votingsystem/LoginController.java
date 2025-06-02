@@ -84,12 +84,10 @@ public class LoginController {
                         stage.setTitle("Dashboard Voter");
                         stage.show();
 
-
                     } catch (Exception ex) {
                         throw new RuntimeException(ex);
                     }
                 }
-
                 return;
             }else
             {
